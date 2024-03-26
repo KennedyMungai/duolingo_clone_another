@@ -1,10 +1,9 @@
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 
 export default function Home() {
 	return (
 		<main className='h-full'>
-			<Button>Click Me</Button>
+			<div className='max-w-[200px] flex flex-col p-2 gap-2'></div>
 		</main>
 	)
 }
