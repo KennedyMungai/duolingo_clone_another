@@ -5,9 +5,9 @@ import Header from './header'
 const LearnPage = () => {
 	return (
 		<div className='flex gap-[48px] px-6'>
-			<FeedWrapper>My Feed</FeedWrapper>
+			<FeedWrapper><Header title='Spanish' /></FeedWrapper>
 			<StickyWrapper>
-				<Header title='Spanish' />
+				My Sticky Wrapper
 			</StickyWrapper>
 		</div>
 	)
