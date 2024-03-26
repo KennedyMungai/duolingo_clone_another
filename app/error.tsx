@@ -20,7 +20,7 @@ const ErrorPage = ({
 		<div className='h-full text-white bg-rose-600 flex flex-col items-center justify-center gap-5'>
 			<div className='flex items-center gap-5 justify-center'>
 				<Image src={'mascot.svg'} width={60} height={60} alt='Mascot' />
-				<p className='font-bold text-3xl'>Error</p>
+				<p className='font-bold text-3xl'>Error: {error.message}</p>
 			</div>
 
 			<Button size='lg' variant={'ghost'} onClick={reset}>
