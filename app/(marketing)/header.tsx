@@ -30,7 +30,7 @@ const Header = () => {
 				</ClerkLoading>
 				<ClerkLoaded>
 					<SignedIn>
-						<UserButton />
+						<UserButton afterSignOutUrl='/' />
 					</SignedIn>
 					<SignedOut>
 						<SignInButton
