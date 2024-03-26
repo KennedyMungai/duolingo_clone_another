@@ -1,4 +1,6 @@
 import { cn } from '@/lib/utils'
+import { ClerkLoaded, ClerkLoading, UserButton } from '@clerk/nextjs'
+import { Loader } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import SideBarItem from './sidebar-item'
@@ -49,6 +51,14 @@ const SideBar = ({ className }: Props) => {
 					iconSrc={'/shop.svg'}
 					href={'/shop'}
 				/>
+			</div>
+			<div className='absolute bottom-10 left-10'>
+				<ClerkLoading>
+					<Loader className='w-5 h-5 text-muted-foreground animate-spin' />
+				</ClerkLoading>
+				<ClerkLoaded>
+					<UserButton />
+				</ClerkLoaded>
 			</div>
 		</div>
 	)
