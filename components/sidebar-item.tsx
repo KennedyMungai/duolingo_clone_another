@@ -1,11 +1,9 @@
-import React from 'react'
+'use client'
 
 type Props = {}
 
 const SideBarItem = (props: Props) => {
-  return (
-    <div>SideBarItem</div>
-  )
+	return <div>SideBarItem</div>
 }
 
 export default SideBarItem
