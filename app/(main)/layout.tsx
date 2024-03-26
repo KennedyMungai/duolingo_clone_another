@@ -1,6 +1,6 @@
 import MobileHeader from '@/components/mobile-header'
 import SideBar from '@/components/sidebar'
-import React, { ReactNode } from 'react'
+import { ReactNode } from 'react'
 
 type Props = {
 	children: ReactNode
