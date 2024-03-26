@@ -3,9 +3,9 @@ import StickyWrapper from '@/components/sticky-wrapper'
 
 const LearnPage = () => {
 	return (
-		<div className='flex flex-row-reverse gap-[48px] px-6'>
-			<StickyWrapper>My Sticky Sidebar</StickyWrapper>
+		<div className='flex gap-[48px] px-6'>
 			<FeedWrapper>My Feed</FeedWrapper>
+			<StickyWrapper>My Sticky Sidebar</StickyWrapper>
 		</div>
 	)
 }
