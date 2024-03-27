@@ -13,9 +13,28 @@ const main = async () => {
 		await db.delete(schema.courses)
 		await db.delete(schema.userProgress)
 
-		await db
-			.insert(schema.courses)
-			.values([{ title: 'Spanish', imageSrc: '/es.svg' }])
+		await db.insert(schema.courses).values([
+			{
+				title: 'Spanish',
+				imageSrc: '/es.svg'
+			},
+			{
+				title: 'French',
+				imageSrc: '/fr.svg'
+			},
+			{
+				title: 'Croatian',
+				imageSrc: '/hr.svg'
+			},
+			{
+				title: 'Italian',
+				imageSrc: '/it.svg'
+			},
+			{
+				title: 'Japanese',
+				imageSrc: '/jp.svg'
+			}
+		])
 
 		console.log('Seeding finished')
 	} catch (error) {
