@@ -50,6 +50,15 @@ export const lessonsRelations = relations(lessons, ({ many, one }) => ({
 	})
 }))
 
+export const challenges = pgTable('challenges', {
+	id: uuid('id').defaultRandom().primaryKey(),
+	lessonId: uuid('lesson_id')
+		.references(() => lessons.id, {
+			onDelete: 'cascade'
+		})
+		.notNull()
+})
+
 export const userProgress = pgTable('user_progress', {
 	userId: text('user_id').primaryKey(),
 	userName: text('user_name').notNull().default('User'),
