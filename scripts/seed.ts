@@ -68,6 +68,18 @@ const main = async () => {
 				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
 				title: 'Verbs',
 				order: 2
+			},
+			{
+				id: 'f8f6d7ba-8395-4a53-9a89-1c1ac72deda5',
+				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
+				title: 'Adjectives',
+				order: 3
+			},
+			{
+				id: 'f23a4bc1-6fc3-4fdc-8d6a-9aa6abe0d1ec',
+				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
+				title: 'Adverbs',
+				order: 4
 			}
 		])
 
