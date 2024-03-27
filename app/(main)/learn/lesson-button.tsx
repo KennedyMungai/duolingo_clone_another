@@ -68,6 +68,29 @@ const LessonButton = ({
 							Start
 							<div className='absolute left-1/2 -bottom-2 w-0 h-0 border-x-8 border-x-transparent border-t-8 transform -translate-x-1/2' />
 						</div>
+						<CircularProgressbarWithChildren
+							value={Number.isNaN(percentage) ? 0 : percentage}
+							styles={{
+								path: { stroke: '#4ade80' },
+								trail: { stroke: '#e5e7eb' }
+							}}
+						>
+							<Button
+								size='rounded'
+								variant={locked ? 'locked' : 'secondary'}
+								className='h-[70px] w-[70px] border-b-8'
+							>
+								<Icon
+									className={cn(
+										'h-10 w-10',
+										locked
+											? 'fill-neutral-400 text-neutral-400 stroke-neutral-400'
+											: 'fill-primary-foreground text-primary-foreground',
+										isCompleted && 'fill-none stroke-[4.5]'
+									)}
+								/>
+							</Button>
+						</CircularProgressbarWithChildren>
 					</div>
 				) : (
 					<div>Something</div>
