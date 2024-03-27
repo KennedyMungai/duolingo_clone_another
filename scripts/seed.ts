@@ -93,9 +93,25 @@ const main = async () => {
 				id: '82e5fb6d-a5f1-44b6-b5f1-b06a08c1efde',
 				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
 				text: 'El Hombre',
-				correct: false,
+				correct: true,
 				imageSrc: '/man.svg',
 				audioSrc: '/es_man.mp3'
+			},
+			{
+				id: 'dceb81df-6bd4-49a6-94c3-40a9fc308e8c',
+				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
+				text: 'La Muher',
+				correct: false,
+				imageSrc: '/woman.svg',
+				audioSrc: '/es_woman.mp3'
+			},
+			{
+				id: 'f12e9312-946b-49e4-a912-485dbf9b8e05',
+				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
+				text: 'El Robot',
+				correct: false,
+				imageSrc: '/robot.svg',
+				audioSrc: '/es_robot.mp3'
 			}
 		])
 
