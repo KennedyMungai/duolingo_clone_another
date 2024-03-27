@@ -1,5 +1,12 @@
 import { relations } from 'drizzle-orm'
-import { integer, pgEnum, pgTable, text, uuid } from 'drizzle-orm/pg-core'
+import {
+	boolean,
+	integer,
+	pgEnum,
+	pgTable,
+	text,
+	uuid
+} from 'drizzle-orm/pg-core'
 
 export const courses = pgTable('courses', {
 	id: uuid('id').defaultRandom().primaryKey(),
@@ -71,6 +78,17 @@ export const challengesRelations = relations(challenges, ({ one, many }) => ({
 		references: [lessons.id]
 	})
 }))
+
+export const challengeOptions = pgTable('challenge_progress', {
+	id: uuid('id').defaultRandom().primaryKey(),
+	challengeId: uuid('challenge_id')
+		.references(() => challenges.id, { onDelete: 'cascade' })
+		.notNull(),
+	text: text('text').notNull(),
+	correct: boolean('correct').notNull(),
+	imageSrc: text('image_src'),
+	audioSrc: text('audio_src')
+})
 
 export const userProgress = pgTable('user_progress', {
 	userId: text('user_id').primaryKey(),
