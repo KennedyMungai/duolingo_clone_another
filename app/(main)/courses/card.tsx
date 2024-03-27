@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { Check } from 'lucide-react'
+import Image from 'next/image'
 
 type Props = {
 	id: string
@@ -26,6 +27,16 @@ const Card = ({ active, disabled, id, imageSrc, onClick, title }: Props) => {
 					</div>
 				)}
 			</div>
+			<Image
+				src={imageSrc}
+				alt={title}
+				height={70}
+				width={93.33}
+				className='rounded-lg drop-shadow-md border object-cover'
+			/>
+			<p className='text-neutral-700 text-center font-bold mt-3'>
+				{title}
+			</p>
 		</div>
 	)
 }
