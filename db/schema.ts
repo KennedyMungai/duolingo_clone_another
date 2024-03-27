@@ -80,7 +80,7 @@ export const challengesRelations = relations(challenges, ({ one, many }) => ({
 	challengeOptions: many(challengeOptions)
 }))
 
-export const challengeOptions = pgTable('challenge_progress', {
+export const challengeOptions = pgTable('challenge_options', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	challengeId: uuid('challenge_id')
 		.references(() => challenges.id, { onDelete: 'cascade' })
