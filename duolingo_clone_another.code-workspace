@@ -12,7 +12,8 @@
 			"lucide",
 			"nextjs",
 			"tailwindcss",
-			"trpc"
+			"trpc",
+			"upsert"
 		]
 	}
 }
