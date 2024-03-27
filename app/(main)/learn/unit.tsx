@@ -1,4 +1,4 @@
-import { lessons } from '@/db/schema'
+import { lessons, units } from '@/db/schema'
 import React from 'react'
 
 type Props = {
@@ -7,7 +7,11 @@ type Props = {
 	description: string
 	title: string
 	lessons: (typeof lessons.$inferSelect & { completed: boolean })[]
-	activeLesson: any
+	activeLesson:
+		| (typeof lessons.$inferInsert & {
+				unit: typeof units.$inferSelect
+		  })
+		| undefined
 	activeLessonPercentage: number
 }
 
