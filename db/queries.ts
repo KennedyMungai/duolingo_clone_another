@@ -10,7 +10,7 @@ export const getCourses = cache(async () => {
 	return data
 })
 
-const getUserProgress = cache(async () => {
+export const getUserProgress = cache(async () => {
 	const { userId } = await auth()
 
 	if (!userId) return null
