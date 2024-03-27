@@ -6,7 +6,7 @@ type Props = {
 	order: number
 	description: string
 	title: string
-	lessons: (typeof lessons.$inferInsert)[]
+	lessons: (typeof lessons.$inferSelect & { completed: boolean })[]
 	activeLesson: any
 	activeLessonPercentage: number
 }
