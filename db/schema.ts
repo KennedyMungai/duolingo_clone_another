@@ -90,6 +90,16 @@ export const challengeOptions = pgTable('challenge_progress', {
 	audioSrc: text('audio_src')
 })
 
+export const challengeOptionsRelations = relations(
+	challengeOptions,
+	({ one }) => ({
+		challenge: one(challenges, {
+			fields: [challengeOptions.challengeId],
+			references: [challenges.id]
+		})
+	})
+)
+
 export const userProgress = pgTable('user_progress', {
 	userId: text('user_id').primaryKey(),
 	userName: text('user_name').notNull().default('User'),
