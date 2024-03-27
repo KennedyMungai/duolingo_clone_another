@@ -1,8 +1,9 @@
-import { getCourses } from '@/db/queries'
+import { getCourses, getUserProgress } from '@/db/queries'
 import List from './list'
 
 const CoursesPage = async () => {
 	const courses = await getCourses()
+	const userProgress = await getUserProgress()
 
 	return (
 		<div className='h-full max-w-[912px] px-3 mx-auto'>
@@ -11,7 +12,7 @@ const CoursesPage = async () => {
 			</h1>
 			<List
 				courses={courses}
-				activeCourseId={'a05935ca-ce27-45fd-8a56-786a4f2fceff'}
+				activeCourseId={userProgress?.activeCourseId}
 			/>
 			<div className='py-4' />
 		</div>
