@@ -17,7 +17,7 @@ const LessonButton = ({
 	current,
 	locked
 }: Props) => {
-	return <div>LessonButton</div>
+	return <div>{id}</div>
 }
 
 export default LessonButton
