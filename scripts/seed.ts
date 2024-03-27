@@ -88,6 +88,17 @@ const main = async () => {
 			}
 		])
 
+		await db.insert(schema.challengeOptions).values([
+			{
+				id: '82e5fb6d-a5f1-44b6-b5f1-b06a08c1efde',
+				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
+				text: 'El Hombre',
+				correct: false,
+				imageSrc: '/man.svg',
+				audioSrc: '/es_man.mp3'
+			}
+		])
+
 		console.log('Seeding finished')
 	} catch (error) {
 		console.error(error)
