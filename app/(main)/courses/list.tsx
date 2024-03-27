@@ -26,7 +26,7 @@ const List = ({ activeCourseId, courses }: Props) => {
 
 		startTransition(() => {
 			upsertUserProgress(id).catch(() =>
-				toast.error('Failed to save progress')
+				toast.error('Something went wrong')
 			)
 		})
 	}
