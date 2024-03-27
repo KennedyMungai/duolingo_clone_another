@@ -13,6 +13,7 @@ const CoursesPage = async () => {
 				courses={courses}
 				activeCourseId={'a05935ca-ce27-45fd-8a56-786a4f2fceff'}
 			/>
+			<div className='py-4' />
 		</div>
 	)
 }
