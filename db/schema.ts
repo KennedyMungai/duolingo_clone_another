@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm'
-import { integer, pgTable, text, uuid } from 'drizzle-orm/pg-core'
+import { integer, pgEnum, pgTable, text, uuid } from 'drizzle-orm/pg-core'
 
 export const courses = pgTable('courses', {
 	id: uuid('id').defaultRandom().primaryKey(),
@@ -49,6 +49,8 @@ export const lessonsRelations = relations(lessons, ({ many, one }) => ({
 		references: [units.id]
 	})
 }))
+
+export const challengesEnum = pgEnum('type', ['SELECT', 'ASSIST'])
 
 export const challenges = pgTable('challenges', {
 	id: uuid('id').defaultRandom().primaryKey(),
