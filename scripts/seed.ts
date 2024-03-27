@@ -56,6 +56,15 @@ const main = async () => {
 			}
 		])
 
+		await db.insert(schema.lessons).values([
+			{
+				id: '4703f230-1c5f-4fa6-836f-e84c729e18b0',
+				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
+				title: 'Hello World',
+				order: 1
+			}
+		])
+
 		console.log('Seeding finished')
 	} catch (error) {
 		console.error(error)
