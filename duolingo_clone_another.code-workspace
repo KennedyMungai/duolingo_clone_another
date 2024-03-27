@@ -5,6 +5,14 @@
 		}
 	],
 	"settings": {
-		"cSpell.words": ["Duolingo", "leaderboard", "lucide", "nextjs", "trpc"]
+		"cSpell.words": [
+			"clsx",
+			"Duolingo",
+			"leaderboard",
+			"lucide",
+			"nextjs",
+			"tailwindcss",
+			"trpc"
+		]
 	}
 }
