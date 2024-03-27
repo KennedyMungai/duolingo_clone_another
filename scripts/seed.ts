@@ -60,8 +60,14 @@ const main = async () => {
 			{
 				id: '4703f230-1c5f-4fa6-836f-e84c729e18b0',
 				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
-				title: 'Hello World',
+				title: 'Nouns',
 				order: 1
+			},
+			{
+				id: 'b180de77-a4ce-47f8-94f3-0beddb36ab0d',
+				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
+				title: 'Verbs',
+				order: 2
 			}
 		])
 
