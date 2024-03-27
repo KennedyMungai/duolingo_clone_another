@@ -15,7 +15,15 @@ type Props = {
 	activeLessonPercentage: number
 }
 
-const Unit = (props: Props) => {
+const Unit = ({
+	activeLesson,
+	activeLessonPercentage,
+	description,
+	id,
+	lessons,
+	order,
+	title
+}: Props) => {
 	return <div>Unit</div>
 }
 
