@@ -1,3 +1,5 @@
+'use client'
+
 import { courses } from '@/db/schema'
 import Card from './card'
 
