@@ -1,5 +1,6 @@
 import { lessons, units } from '@/db/schema'
 import React from 'react'
+import UnitBanner from './unit-banner'
 
 type Props = {
 	id: string
@@ -24,7 +25,11 @@ const Unit = ({
 	order,
 	title
 }: Props) => {
-	return <div>Unit</div>
+	return (
+		<>
+			<UnitBanner title={title} description={description} />
+		</>
+	)
 }
 
 export default Unit
