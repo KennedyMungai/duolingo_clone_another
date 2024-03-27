@@ -28,6 +28,8 @@ export const getUserProgress = cache(async () => {
 export const getCourseById = cache(async (courseId: string) => {
 	const data = await db.query.courses.findFirst({
 		where: eq(courses.id, courseId)
+
+		// TODO: Populate units and lessons
 	})
 
 	return data
