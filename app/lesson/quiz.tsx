@@ -5,17 +5,22 @@ import { challengeOptions } from '@/db/schema'
 
 type Props = {
 	initialLessonId: string
-	initialLessonChallenges: typeof challenges.$inferSelect &
-		{
-			completed: boolean
-			challengeOptions: (typeof challengeOptions.$inferSelect)[]
-		}[]
+	initialLessonChallenges: (typeof challenges.$inferSelect & {
+		completed: boolean
+		challengeOptions: (typeof challengeOptions.$inferSelect)[]
+	})[]
 	initialHearts: number
 	initialPercentage: number
 	userSubscription: any //TODO: Replace with subscription db type
 }
 
-const Quiz = (props: Props) => {
+const Quiz = ({
+	initialHearts,
+	initialLessonChallenges,
+	initialLessonId,
+	initialPercentage,
+	userSubscription
+}: Props) => {
 	return <div>Quiz</div>
 }
 
