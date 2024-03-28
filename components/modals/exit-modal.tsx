@@ -2,15 +2,11 @@
 
 import {
 	Dialog,
-	DialogClose,
 	DialogContent,
 	DialogDescription,
 	DialogFooter,
 	DialogHeader,
-	DialogOverlay,
-	DialogPortal,
-	DialogTitle,
-	DialogTrigger
+	DialogTitle
 } from '@/components/ui/dialog'
 import { useExitModal } from '@/store/use-exit-modal'
 import Image from 'next/image'
