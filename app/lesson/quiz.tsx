@@ -12,7 +12,7 @@ type Props = {
 		}[]
 	initialHearts: number
 	initialPercentage: number
-	userSubscription: any
+	userSubscription: any //TODO: Replace with subscription db type
 }
 
 const Quiz = (props: Props) => {
