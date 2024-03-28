@@ -2,6 +2,7 @@
 
 import { challengeOptions, challenges } from '@/db/schema'
 import { useState } from 'react'
+import Challenge from './challenge'
 import Header from './header'
 import QuestionBubble from './question-bubble'
 
@@ -36,6 +37,8 @@ const Quiz = ({
 
 	const challenge = challenges[activeIndex]
 
+	const options = challenge?.challengeOptions ?? []
+
 	const title =
 		challenge.type === 'ASSIST'
 			? 'Select the correct meaning'
@@ -58,6 +61,14 @@ const Quiz = ({
 							{challenge.type === 'ASSIST' && (
 								<QuestionBubble question={challenge.question} />
 							)}
+							<Challenge
+								options={options}
+								onSelect={() => {}}
+								status='correct'
+								selectedOption={null}
+								disabled={false}
+								type={challenge.type}
+							/>
 						</div>
 					</div>
 				</div>
