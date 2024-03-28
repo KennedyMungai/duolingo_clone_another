@@ -53,6 +53,39 @@ const Quiz = ({
 		setSelectedOption(id)
 	}
 
+	const onNext = () => {
+		setActiveIndex((current) => current + 1)
+	}
+
+	const onContinue = () => {
+		if (!selectedOption) return
+
+		if (status === 'wrong') {
+			setStatus('none')
+			setSelectedOption(undefined)
+
+			return
+		}
+
+		if (status === 'correct') {
+			onNext()
+			setStatus('none')
+			setSelectedOption(undefined)
+
+			return
+		}
+
+		const correctOption = options.find((option) => option.correct)
+
+		if (!correctOption) return
+
+		if (correctOption.id === selectedOption) {
+			console.log('Correct Option!')
+		} else {
+			console.error('Incorrect Option!')
+		}
+	}
+
 	return (
 		<>
 			<Header
@@ -85,7 +118,7 @@ const Quiz = ({
 			<Footer
 				disabled={!selectedOption}
 				status={status}
-				onCheck={() => {}}
+				onCheck={onContinue}
 			/>
 		</>
 	)
