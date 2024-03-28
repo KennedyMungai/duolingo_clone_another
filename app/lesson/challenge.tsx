@@ -1,10 +1,12 @@
 import { challengeOptions, challenges } from '@/db/schema'
 import { cn } from '@/lib/utils'
+import Card from './card'
+
 type Props = {
 	options: (typeof challengeOptions.$inferSelect)[]
 	onSelect: (id: string) => void
 	status: 'correct' | 'wrong' | 'none'
-	selectedOption?: number
+	selectedOption?: string
 	disabled?: boolean
 	type: (typeof challenges.$inferInsert)['type']
 }
@@ -27,7 +29,19 @@ const Challenge = ({
 			)}
 		>
 			{options.map((option, index) => (
-				<div key={index}>{JSON.stringify(option)}</div>
+				<Card
+					key={option.id}
+					id={option.id}
+					text={option.text}
+					imageSrc={option.imageSrc}
+					shortcut={`${index + 1}`}
+					selected={selectedOption === option.id}
+					onClick={() => onSelect(option.id)}
+					status={status}
+					audioSrc={option.audioSrc}
+					disabled={disabled}
+					type={type}
+				/>
 			))}
 		</div>
 	)
