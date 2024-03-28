@@ -17,9 +17,10 @@ const LearnPage = async () => {
 	const lessonPercentage = await getLessonPercentage()
 	const units = await getUnits()
 
-	if (!userProgress || !userProgress.activeCourse) {
+	if (!userProgress || !userProgress.activeCourse || !courseProgress) {
 		redirect('/courses')
 	}
+
 	return (
 		<div className='flex gap-[48px] px-6'>
 			<FeedWrapper>
@@ -32,7 +33,7 @@ const LearnPage = async () => {
 							description={unit.description}
 							title={unit.title}
 							lessons={unit.lessons}
-							activeLesson={courseProgress?.activeLesson}
+							activeLesson={courseProgress.activeLesson}
 							activeLessonPercentage={lessonPercentage}
 						/>
 					</div>
