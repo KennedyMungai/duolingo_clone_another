@@ -162,7 +162,8 @@ export const getLesson = cache(async (id?: string) => {
 	const normalizedChallenges = data.challenges.map((challenge) => {
 		const completed =
 			challenge.challengeProgress &&
-			challenge.challengeProgress.length > 0
+			challenge.challengeProgress.length > 0 &&
+			challenge.challengeProgress.every((progress) => progress.completed)
 
 		return { ...challenge, completed }
 	})
