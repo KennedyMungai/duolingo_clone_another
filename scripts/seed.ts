@@ -80,6 +80,12 @@ const main = async () => {
 				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
 				title: 'Adverbs',
 				order: 4
+			},
+			{
+				id: '143c8c71-3c61-4b69-9c81-a12a1cd9b3a2',
+				unitId: 'a1a3e6d5-9e0c-4f3f-9e6c-9e0c4f3f9e6c',
+				title: 'Pronouns',
+				order: 5
 			}
 		])
 
