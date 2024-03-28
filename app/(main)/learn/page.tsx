@@ -1,13 +1,20 @@
 import FeedWrapper from '@/components/feed-wrapper'
 import StickyWrapper from '@/components/sticky-wrapper'
 import UserProgress from '@/components/user-progress'
-import { getUnits, getUserProgress } from '@/db/queries'
+import {
+	getCourseProgress,
+	getLessonPercentage,
+	getUnits,
+	getUserProgress
+} from '@/db/queries'
 import { redirect } from 'next/navigation'
 import Header from './header'
 import Unit from './unit'
 
 const LearnPage = async () => {
 	const userProgress = await getUserProgress()
+	const courseProgress = await getCourseProgress()
+	const lessonPercentage = await getLessonPercentage()
 	const units = await getUnits()
 
 	if (!userProgress || !userProgress.activeCourse) {
@@ -25,8 +32,8 @@ const LearnPage = async () => {
 							description={unit.description}
 							title={unit.title}
 							lessons={unit.lessons}
-							activeLesson={undefined}
-							activeLessonPercentage={0}
+							activeLesson={courseProgress?.activeLesson}
+							activeLessonPercentage={lessonPercentage}
 						/>
 					</div>
 				))}
