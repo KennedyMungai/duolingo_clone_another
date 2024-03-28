@@ -34,7 +34,7 @@ const Quiz = ({
 
 		return uncompletedIndex === -1 ? 0 : uncompletedIndex
 	})
-	const [selectedOption, setSelectedOption] = useState<number>()
+	const [selectedOption, setSelectedOption] = useState<string | undefined>()
 	const [status, setStatus] = useState<'correct' | 'wrong' | 'none'>('none')
 
 	const challenge = challenges[activeIndex]
