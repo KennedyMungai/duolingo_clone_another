@@ -1,10 +1,10 @@
 import { challengeOptions, challenges } from '../../db/schema'
 type Props = {
 	options: (typeof challengeOptions.$inferSelect)[]
-	onSelect: () => void
-	status: 'correct' | 'wrong'
-	selectedOption: typeof challengeOptions.$inferSelect | null
-	disabled: boolean
+	onSelect: (id: string) => void
+	status: 'correct' | 'wrong' | 'none'
+	selectedOption?: number
+	disabled?: boolean
 	type: (typeof challenges.$inferInsert)['type']
 }
 
