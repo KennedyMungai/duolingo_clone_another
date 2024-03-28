@@ -117,6 +117,7 @@ export const getCourseProgress = cache(async () => {
 	const firstUncompletedLesson = unitsInActiveCourse
 		.flatMap((unit) => unit.lessons)
 		.find((lesson) => {
+			// TODO: If something does not work, check the last if clause
 			return lesson.challenges.some((challenge) => {
 				return (
 					!challenge.challengeProgress ||
@@ -163,6 +164,7 @@ export const getLesson = cache(async (id?: string) => {
 	if (!data || !data.challenges) return null
 
 	const normalizedChallenges = data.challenges.map((challenge) => {
+		// TODO: If something does not work, check the last if clause
 		const completed =
 			challenge.challengeProgress &&
 			challenge.challengeProgress.length > 0 &&
