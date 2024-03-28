@@ -65,7 +65,7 @@ const Quiz = ({
 								options={options}
 								onSelect={() => {}}
 								status='correct'
-								selectedOption={null}
+								selectedOption={undefined}
 								disabled={false}
 								type={challenge.type}
 							/>
