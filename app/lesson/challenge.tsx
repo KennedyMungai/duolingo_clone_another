@@ -1,4 +1,5 @@
-import { challengeOptions, challenges } from '../../db/schema'
+import { challengeOptions, challenges } from '@/db/schema'
+import { cn } from '@/lib/utils'
 type Props = {
 	options: (typeof challengeOptions.$inferSelect)[]
 	onSelect: (id: string) => void
@@ -16,7 +17,20 @@ const Challenge = ({
 	status,
 	type
 }: Props) => {
-	return <div>Challenge</div>
+	return (
+		<div
+			className={cn(
+				'grid gap-2',
+				type === 'ASSIST'
+					? 'grid-cols-1'
+					: 'grid-cols-2 lg:grid-cols-[repeat(auto-fit,minmax(0,1fr))]'
+			)}
+		>
+			{options.map((option, index) => (
+				<div key={index}>{JSON.stringify(option)}</div>
+			))}
+		</div>
+	)
 }
 
 export default Challenge
