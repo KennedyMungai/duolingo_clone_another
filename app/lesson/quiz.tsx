@@ -3,6 +3,7 @@
 import { challengeOptions, challenges } from '@/db/schema'
 import { useState } from 'react'
 import Challenge from './challenge'
+import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
 
@@ -81,6 +82,11 @@ const Quiz = ({
 					</div>
 				</div>
 			</div>
+			<Footer
+				disabled={!selectedOption}
+				status={status}
+				onCheck={() => {}}
+			/>
 		</>
 	)
 }
