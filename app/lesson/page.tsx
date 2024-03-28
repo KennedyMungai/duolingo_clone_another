@@ -1,6 +1,6 @@
 import { getLesson, getUserProgress } from '@/db/queries'
-import { lessons } from '@/db/schema'
 import { redirect } from 'next/navigation'
+import Quiz from './quiz'
 
 const LessonPage = async () => {
 	const lesson = await getLesson()
@@ -14,7 +14,15 @@ const LessonPage = async () => {
 				.length / lesson.challenges.length
 		) * 100
 
-	return <div>LessonPage</div>
+	return (
+		<Quiz
+			initialLessonId={lesson.id}
+			initialLessonChallenges={lesson.challenges}
+			initialHearts={userProgress.hearts}
+			initialPercentage={initialPercentage}
+			userSubscription={null}
+		/>
+	)
 }
 
 export default LessonPage
