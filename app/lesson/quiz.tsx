@@ -1,7 +1,7 @@
 'use client'
 
 import { challengeOptions, challenges } from '@/db/schema'
-import { useState } from 'react'
+import { useState, useTransition } from 'react'
 import Challenge from './challenge'
 import Footer from './footer'
 import Header from './header'
@@ -37,6 +37,8 @@ const Quiz = ({
 	})
 	const [selectedOption, setSelectedOption] = useState<string | undefined>()
 	const [status, setStatus] = useState<'correct' | 'wrong' | 'none'>('none')
+
+	const [pending, startTransition] = useTransition()
 
 	const challenge = challenges[activeIndex]
 
@@ -108,7 +110,7 @@ const Quiz = ({
 								onSelect={onSelect}
 								status={status}
 								selectedOption={selectedOption}
-								disabled={false}
+								disabled={pending}
 								type={challenge.type}
 							/>
 						</div>
@@ -116,7 +118,7 @@ const Quiz = ({
 				</div>
 			</div>
 			<Footer
-				disabled={!selectedOption}
+				disabled={!selectedOption || pending}
 				status={status}
 				onCheck={onContinue}
 			/>
