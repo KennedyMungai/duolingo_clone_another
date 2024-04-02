@@ -42,7 +42,7 @@ const Quiz = ({
 		src: '/incorrect.wav'
 	})
 	const [finishedAudio, _f, finishedControls] = useAudio({
-		src: '/finished.wav'
+		src: '/finish.mp3'
 	})
 
 	const [hearts, setHearts] = useState(initialHearts)
