@@ -117,6 +117,27 @@ const main = async () => {
 				type: 'SELECT',
 				question: 'Which one of these is "the robot"',
 				order: 4
+			},
+			{
+				id: 'c38fae11-fa63-4acb-a201-c2f007c784a4',
+				lessonId: 'b180de77-a4ce-47f8-94f3-0beddb36ab0d',
+				type: 'SELECT',
+				question: 'Which one of these is "the machine"?',
+				order: 5
+			},
+			{
+				id: 'f1015678-5aba-4985-8d24-ee96618bd574',
+				lessonId: 'b180de77-a4ce-47f8-94f3-0beddb36ab0d',
+				type: 'ASSIST',
+				question: '"The Man"',
+				order: 6
+			},
+			{
+				id: 'a6ced983-8297-4b03-b236-e23cc8c11790',
+				lessonId: 'b180de77-a4ce-47f8-94f3-0beddb36ab0d',
+				type: 'SELECT',
+				question: 'Which one of these is "the robot"',
+				order: 7
 			}
 		])
 
