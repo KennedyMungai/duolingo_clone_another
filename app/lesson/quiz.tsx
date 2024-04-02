@@ -123,6 +123,7 @@ const Quiz = ({
 							return
 						}
 
+						incorrectControls.play()
 						setStatus('wrong')
 
 						if (!res?.error) {
