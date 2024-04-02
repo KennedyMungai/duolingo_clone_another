@@ -103,12 +103,25 @@ const main = async () => {
 				type: 'SELECT',
 				question: 'Which one of these is "the machine"?',
 				order: 2
+			},
+			{
+				id: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
+				lessonId: '4703f230-1c5f-4fa6-836f-e84c729e18b0',
+				type: 'ASSIST',
+				question: '"The Man"',
+				order: 3
+			},
+			{
+				id: 'afdceb3d-3b9e-4d95-8b38-327631a7cb54',
+				lessonId: '4703f230-1c5f-4fa6-836f-e84c729e18b0',
+				type: 'SELECT',
+				question: 'Which one of these is "the robot"',
+				order: 4
 			}
 		])
 
 		await db.insert(schema.challengeOptions).values([
 			{
-				id: '82e5fb6d-a5f1-44b6-b5f1-b06a08c1efde',
 				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
 				text: 'El Hombre',
 				correct: true,
@@ -116,7 +129,6 @@ const main = async () => {
 				audioSrc: '/es_man.mp3'
 			},
 			{
-				id: 'dceb81df-6bd4-49a6-94c3-40a9fc308e8c',
 				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
 				text: 'La Muher',
 				correct: false,
@@ -124,10 +136,48 @@ const main = async () => {
 				audioSrc: '/es_woman.mp3'
 			},
 			{
-				id: 'f12e9312-946b-49e4-a912-485dbf9b8e05',
 				challengeId: 'f1d1f8c7-8e0a-4d3f-9e6c-9e0c4f3f9e6c',
 				text: 'El Robot',
 				correct: false,
+				imageSrc: '/robot.svg',
+				audioSrc: '/es_robot.mp3'
+			},
+			{
+				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
+				text: 'El Robot',
+				correct: false,
+				audioSrc: '/es_robot.mp3'
+			},
+			{
+				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
+				text: 'El Robot',
+				correct: false,
+				audioSrc: '/es_robot.mp3'
+			},
+			{
+				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
+				text: 'El Robot',
+				correct: false,
+				audioSrc: '/es_robot.mp3'
+			},
+			{
+				challengeId: 'afdceb3d-3b9e-4d95-8b38-327631a7cb54',
+				text: 'El Hombre',
+				correct: false,
+				imageSrc: '/man.svg',
+				audioSrc: '/es_man.mp3'
+			},
+			{
+				challengeId: 'afdceb3d-3b9e-4d95-8b38-327631a7cb54',
+				text: 'La Muher',
+				correct: false,
+				imageSrc: '/woman.svg',
+				audioSrc: '/es_woman.mp3'
+			},
+			{
+				challengeId: 'afdceb3d-3b9e-4d95-8b38-327631a7cb54',
+				text: 'El Robot',
+				correct: true,
 				imageSrc: '/robot.svg',
 				audioSrc: '/es_robot.mp3'
 			}
