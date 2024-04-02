@@ -41,7 +41,7 @@ const Quiz = ({
 	const [incorrectAudio, _ic, incorrectControls] = useAudio({
 		src: '/incorrect.wav'
 	})
-	const [finishedAudio] = useAudio({
+	const [finishAudio] = useAudio({
 		src: '/finish.mp3',
 		autoPlay: true
 	})
@@ -71,6 +71,7 @@ const Quiz = ({
 	if (!challenge) {
 		return (
 			<>
+				{finishAudio}
 				<Confetti
 					recycle={false}
 					numberOfPieces={500}
