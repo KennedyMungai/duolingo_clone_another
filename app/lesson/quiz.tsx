@@ -55,6 +55,10 @@ const Quiz = ({
 
 	const options = challenge?.challengeOptions ?? []
 
+	if (!challenge) {
+		return <div>Finished the challenge</div>
+	}
+
 	const title =
 		challenge.type === 'ASSIST'
 			? 'Select the correct meaning'
