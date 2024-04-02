@@ -8,7 +8,6 @@ import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-// TODO: Move alongside item component constant into common file
 const POINTS_TO_REFILL = 10
 
 export const upsertUserProgress = async (courseId: string) => {
