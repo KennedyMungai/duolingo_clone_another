@@ -11,6 +11,7 @@ import Challenge from './challenge'
 import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
+import ResultCard from './result-card'
 
 type Props = {
 	initialLessonId: string
@@ -74,6 +75,15 @@ const Quiz = ({
 						height={50}
 						width={50}
 					/>
+					<h1 className='text-xl lg:text-3xl font-bold text-neutral-700'>
+						Great Job <br /> You&apos;ve completed the lesson
+					</h1>
+					<div className='flex items-center gap-x-4 w-full'>
+						<ResultCard
+							variant='points'
+							value={challenges.length * 10}
+						/>
+					</div>
 				</div>
 			</>
 		)
