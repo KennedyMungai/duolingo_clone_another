@@ -6,13 +6,14 @@ import { challengeOptions, challenges } from '@/db/schema'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
-import { useAudio } from 'react-use'
+import { useAudio, useWindowSize } from 'react-use'
 import { toast } from 'sonner'
 import Challenge from './challenge'
 import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
 import ResultCard from './result-card'
+import Confetti from 'react-confetti'
 
 type Props = {
 	initialLessonId: string
@@ -32,6 +33,8 @@ const Quiz = ({
 	initialPercentage,
 	userSubscription
 }: Props) => {
+	const { height, width } = useWindowSize()
+
 	const [correctAudio, _c, correctControls] = useAudio({
 		src: '/correct.wav'
 	})
@@ -64,6 +67,13 @@ const Quiz = ({
 	if (!challenge) {
 		return (
 			<>
+				<Confetti
+					recycle={false}
+					numberOfPieces={500}
+					tweenDuration={10000}
+					width={width}
+					height={height}
+				/>
 				<div className='flex flex-col gap-y-4 lg:gap-y-8 max-w-lg mx-auto text-center items-center justify-center h-full'>
 					<Image
 						src='/finished.svg'
