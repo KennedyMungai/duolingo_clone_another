@@ -20,4 +20,6 @@ export const POST = async (req: Request) => {
 			status: 400
 		})
 	}
+
+	return new NextResponse(null, { status: 200 })
 }
