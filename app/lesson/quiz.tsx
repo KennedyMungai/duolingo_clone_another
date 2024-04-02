@@ -3,6 +3,7 @@
 import { upsertChallengeProgress } from '@/actions/challenge-progress'
 import { reduceHearts } from '@/actions/user-progress'
 import { challengeOptions, challenges } from '@/db/schema'
+import { useHeartsModal } from '@/store/use-hearts-modal'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
@@ -34,6 +35,8 @@ const Quiz = ({
 	userSubscription
 }: Props) => {
 	const { height, width } = useWindowSize()
+
+	const { open: openHeartsModal } = useHeartsModal((state) => state)
 
 	const [correctAudio, _c, correctControls] = useAudio({
 		src: '/correct.wav'
@@ -156,7 +159,7 @@ const Quiz = ({
 				upsertChallengeProgress(challenge.id)
 					.then((response) => {
 						if (response?.error === 'hearts') {
-							// openHeartsModal()
+							openHeartsModal()
 							return
 						}
 
