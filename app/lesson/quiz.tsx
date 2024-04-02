@@ -50,6 +50,7 @@ const Quiz = ({
 	})
 	const [selectedOption, setSelectedOption] = useState<string | undefined>()
 	const [status, setStatus] = useState<'correct' | 'wrong' | 'none'>('none')
+	const [lessonId] = useState(initialLessonId)
 
 	const [pending, startTransition] = useTransition()
 
@@ -86,6 +87,11 @@ const Quiz = ({
 						<ResultCard variant='hearts' value={hearts} />
 					</div>
 				</div>
+				<Footer
+					lessonId={lessonId}
+					status='completed'
+					onCheck={() => {}}
+				/>
 			</>
 		)
 	}
