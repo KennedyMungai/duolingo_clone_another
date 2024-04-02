@@ -1,11 +1,13 @@
 'use client'
 
+import { reduceHearts } from '@/actions/user-progress'
 import { challengeOptions, challenges } from '@/db/schema'
 import { useState, useTransition } from 'react'
 import Challenge from './challenge'
 import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
+import { toast } from 'sonner'
 
 type Props = {
 	initialLessonId: string
@@ -84,7 +86,24 @@ const Quiz = ({
 		if (correctOption.id === selectedOption) {
 			console.log('Correct Option!')
 		} else {
-			console.error('Incorrect Option!')
+			startTransition(() => {
+				reduceHearts(challenge.id)
+					.then((res) => {
+						if (res?.error === 'hearts') {
+							console.error('Missing Hearts')
+							return
+						}
+
+						setStatus('wrong')
+
+						if (!res?.error) {
+							setHearts((prev) => Math.max(prev - 1, 0))
+						}
+					})
+					.catch(() =>
+						toast.error('Something went wrong. Please try again.')
+					)
+			})
 		}
 	}
 
