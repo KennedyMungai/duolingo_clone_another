@@ -26,7 +26,7 @@ export const createStripeUrl = async () => {
 
 	const stripeSession = await stripe.checkout.sessions.create({
 		mode: 'subscription',
-		payment_method_types: ['paypal', 'card', 'cashapp', 'acss_debit'],
+		payment_method_types: ['paypal', 'card', 'cashapp'],
 		customer_email: user.emailAddresses[0].emailAddress,
 		line_items: [
 			{
