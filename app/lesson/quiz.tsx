@@ -67,6 +67,13 @@ const Quiz = ({
 						height={100}
 						width={100}
 					/>
+					<Image
+						src='/finished.svg'
+						alt={'Finished'}
+						className='block lg:hidden'
+						height={50}
+						width={50}
+					/>
 				</div>
 			</>
 		)
