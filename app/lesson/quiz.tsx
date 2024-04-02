@@ -6,6 +6,7 @@ import { challengeOptions, challenges } from '@/db/schema'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
+import Confetti from 'react-confetti'
 import { useAudio, useWindowSize } from 'react-use'
 import { toast } from 'sonner'
 import Challenge from './challenge'
@@ -13,7 +14,6 @@ import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
 import ResultCard from './result-card'
-import Confetti from 'react-confetti'
 
 type Props = {
 	initialLessonId: string
