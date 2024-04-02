@@ -7,9 +7,8 @@ import { auth, currentUser } from '@clerk/nextjs'
 import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
-import { cache } from 'react'
 
-export const upsertUserProgress = cache(async (courseId: string) => {
+export const upsertUserProgress = async (courseId: string) => {
 	const { userId } = await auth()
 	const user = await currentUser()
 
@@ -54,9 +53,9 @@ export const upsertUserProgress = cache(async (courseId: string) => {
 	revalidatePath('/learn')
 
 	redirect('/learn')
-})
+}
 
-export const reduceHearts = cache(async (challengeId: string) => {
+export const reduceHearts = async (challengeId: string) => {
 	const { userId } = await auth()
 
 	if (!userId) throw new Error('Unauthorized')
@@ -103,4 +102,4 @@ export const reduceHearts = cache(async (challengeId: string) => {
 	revalidatePath('/quests')
 	revalidatePath('/leaderboard')
 	revalidatePath(`/lesson/${lessonId}`)
-})
+}

@@ -6,9 +6,8 @@ import { challengeProgress, challenges, userProgress } from '@/db/schema'
 import { auth } from '@clerk/nextjs'
 import { and, eq } from 'drizzle-orm'
 import { revalidatePath } from 'next/cache'
-import { cache } from 'react'
 
-export const upsertChallengeProgress = cache(async (challengeId: string) => {
+export const upsertChallengeProgress = async (challengeId: string) => {
 	const { userId } = await auth()
 
 	if (!userId) throw new Error('Unauthorized')
@@ -83,4 +82,4 @@ export const upsertChallengeProgress = cache(async (challengeId: string) => {
 	revalidatePath('/quests')
 	revalidatePath('/leaderboard')
 	revalidatePath(`/lesson/${lessonId}`)
-})
+}
