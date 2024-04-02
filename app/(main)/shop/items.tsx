@@ -1,8 +1,10 @@
 'use client'
 
+import { refillHearts } from '@/actions/user-progress'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import { useTransition } from 'react'
+import { toast } from 'sonner'
 
 const POINTS_TO_REFILL = 10
 
@@ -18,7 +20,11 @@ const Items = ({ hasActiveSubscription, hearts, points }: Props) => {
 	const onRefillHearts = () => {
 		if (pending || hearts === 5 || points < POINTS_TO_REFILL) return
 
-		startTransition(() => {})
+		startTransition(() => {
+			refillHearts().catch(() => {
+				toast.error('Something went wrong')
+			})
+		})
 	}
 
 	return (
