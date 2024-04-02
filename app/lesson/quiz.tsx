@@ -1,15 +1,15 @@
 'use client'
 
+import { upsertChallengeProgress } from '@/actions/challenge-progress'
 import { reduceHearts } from '@/actions/user-progress'
 import { challengeOptions, challenges } from '@/db/schema'
 import { useState, useTransition } from 'react'
+import { useAudio } from 'react-use'
+import { toast } from 'sonner'
 import Challenge from './challenge'
 import Footer from './footer'
 import Header from './header'
 import QuestionBubble from './question-bubble'
-import { toast } from 'sonner'
-import { useAudio } from 'react-use'
-import { upsertChallengeProgress } from '@/actions/challenge-progress'
 
 type Props = {
 	initialLessonId: string
