@@ -166,6 +166,7 @@ const main = async () => {
 			{
 				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
 				text: 'El Hombre',
+				imageSrc: '/man.svg',
 				correct: true,
 				audioSrc: '/es_man.mp3'
 			},
@@ -173,11 +174,13 @@ const main = async () => {
 				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
 				text: 'La Muher',
 				correct: false,
+				imageSrc: '/woman.svg',
 				audioSrc: '/es_woman.mp3'
 			},
 			{
 				challengeId: '76631c3d-69a3-4b2e-ac3f-87dbe7b4b986',
 				text: 'El Robot',
+				imageSrc: '/robot.svg',
 				correct: false,
 				audioSrc: '/es_robot.mp3'
 			},
