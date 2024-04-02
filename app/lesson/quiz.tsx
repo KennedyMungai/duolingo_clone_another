@@ -117,6 +117,8 @@ const Quiz = ({
 
 	return (
 		<>
+			{incorrectAudio}
+			{correctAudio}
 			<Header
 				hearts={hearts}
 				percentage={percentage}
