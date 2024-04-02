@@ -68,7 +68,7 @@ const Quiz = ({
 
 	const router = useRouter()
 
-	if (true || !challenge) {
+	if (!challenge) {
 		return (
 			<>
 				{finishAudio}
