@@ -181,7 +181,7 @@ const Quiz = ({
 				reduceHearts(challenge.id)
 					.then((res) => {
 						if (res?.error === 'hearts') {
-							console.error('Missing Hearts')
+							openHeartsModal()
 							return
 						}
 
