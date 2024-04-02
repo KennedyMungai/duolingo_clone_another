@@ -9,7 +9,7 @@ import {
 	DialogHeader,
 	DialogTitle
 } from '@/components/ui/dialog'
-import { useExitModal } from '@/store/use-exit-modal'
+import { useHeartsModal } from '@/store/use-hearts-modal'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
@@ -21,11 +21,16 @@ const HeartsModal = (props: Props) => {
 
 	const [isClient, setIsClient] = useState(false)
 
-	const { close, isOpen, open } = useExitModal((store) => store)
+	const { close, isOpen, open } = useHeartsModal((store) => store)
 
 	useEffect(() => {
 		setIsClient(true)
 	}, [])
+
+	const onClick = () => {
+		close()
+		router.push('/store')
+	}
 
 	if (!isClient) return null
 
@@ -42,10 +47,11 @@ const HeartsModal = (props: Props) => {
 						/>
 					</div>
 					<DialogTitle className='text-center font-bold text-2xl'>
-						Wait, don&apos;t go
+						You ran out of hearts
 					</DialogTitle>
 					<DialogDescription className='text-center text-base'>
-						You&apos;re about to leave the lesson. Are you sure?
+						Get Pro for unlimited hearts or purchase them from the
+						store
 					</DialogDescription>
 				</DialogHeader>
 				<DialogFooter className='mb-4'>
@@ -54,20 +60,17 @@ const HeartsModal = (props: Props) => {
 							variant='primary'
 							className='w-full'
 							size='lg'
-							onClick={close}
+							onClick={onClick}
 						>
-							Keep Learning
+							Get unlimited hearts
 						</Button>
 						<Button
-							variant='dangerOutline'
+							variant='primaryOutline'
 							className='w-full'
 							size='lg'
-							onClick={() => {
-								close()
-								router.push('/learn')
-							}}
+							onClick={close}
 						>
-							End Session
+							No thanks
 						</Button>
 					</div>
 				</DialogFooter>
