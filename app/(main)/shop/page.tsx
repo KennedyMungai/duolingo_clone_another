@@ -4,6 +4,7 @@ import UserProgress from '@/components/user-progress'
 import { getUserProgress } from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
+import Items from './items'
 
 const ShopPage = async () => {
 	const userProgress = await getUserProgress()
