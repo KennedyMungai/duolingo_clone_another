@@ -4,6 +4,7 @@ import { upsertChallengeProgress } from '@/actions/challenge-progress'
 import { reduceHearts } from '@/actions/user-progress'
 import { challengeOptions, challenges } from '@/db/schema'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import { useAudio } from 'react-use'
 import { toast } from 'sonner'
@@ -58,6 +59,8 @@ const Quiz = ({
 
 	const options = challenge?.challengeOptions ?? []
 
+	const router = useRouter()
+
 	if (!challenge) {
 		return (
 			<>
@@ -90,7 +93,7 @@ const Quiz = ({
 				<Footer
 					lessonId={lessonId}
 					status='completed'
-					onCheck={() => {}}
+					onCheck={() => router.push('/learn')}
 				/>
 			</>
 		)
