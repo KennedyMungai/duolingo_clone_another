@@ -27,7 +27,11 @@ const ShopPage = async () => {
 					<p className='text-muted-foreground text-center text-lg mb-6'>
 						Spend your points on cool stuff
 					</p>
-					<Items />
+					<Items
+						hearts={0}
+						points={0}
+						hasActiveSubscription={false}
+					/>
 				</div>
 			</FeedWrapper>
 			<StickyWrapper>
