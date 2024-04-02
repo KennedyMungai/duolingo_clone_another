@@ -9,6 +9,7 @@ import Header from './header'
 import QuestionBubble from './question-bubble'
 import { toast } from 'sonner'
 import { useAudio } from 'react-use'
+import { upsertChallengeProgress } from '@/actions/challenge-progress'
 
 type Props = {
 	initialLessonId: string
@@ -92,7 +93,27 @@ const Quiz = ({
 		if (!correctOption) return
 
 		if (correctOption.id === selectedOption) {
-			console.log('Correct Option!')
+			startTransition(() => {
+				upsertChallengeProgress(challenge.id)
+					.then((response) => {
+						if (response?.error === 'hearts') {
+							// openHeartsModal()
+							return
+						}
+
+						correctControls.play()
+						setStatus('correct')
+						setPercentage((prev) => prev + 100 / challenges.length)
+
+						// This is a practice
+						if (initialPercentage === 100) {
+							setHearts((prev) => Math.min(prev + 1, 5))
+						}
+					})
+					.catch(() =>
+						toast.error('Something went wrong. Please try again.')
+					)
+			})
 		} else {
 			startTransition(() => {
 				reduceHearts(challenge.id)
