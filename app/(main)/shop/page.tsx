@@ -28,9 +28,9 @@ const ShopPage = async () => {
 						Spend your points on cool stuff
 					</p>
 					<Items
-						hearts={0}
-						points={0}
-						hasActiveSubscription={false}
+						hearts={userProgress.hearts}
+						points={userProgress.points}
+						hasActiveSubscription={false} // TODO: Add subscription
 					/>
 				</div>
 			</FeedWrapper>
