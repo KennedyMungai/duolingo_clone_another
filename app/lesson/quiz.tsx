@@ -4,11 +4,12 @@ import { upsertChallengeProgress } from '@/actions/challenge-progress'
 import { reduceHearts } from '@/actions/user-progress'
 import { challengeOptions, challenges } from '@/db/schema'
 import { useHeartsModal } from '@/store/use-hearts-modal'
+import { usePracticeModal } from '@/store/use-practice-modal'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { useState, useTransition } from 'react'
 import Confetti from 'react-confetti'
-import { useAudio, useWindowSize } from 'react-use'
+import { useAudio, useMount, useWindowSize } from 'react-use'
 import { toast } from 'sonner'
 import Challenge from './challenge'
 import Footer from './footer'
@@ -37,6 +38,7 @@ const Quiz = ({
 	const { height, width } = useWindowSize()
 
 	const { open: openHeartsModal } = useHeartsModal((state) => state)
+	const { open: openPracticeModal } = usePracticeModal((state) => state)
 
 	const [correctAudio, _c, correctControls] = useAudio({
 		src: '/correct.wav'
@@ -70,6 +72,10 @@ const Quiz = ({
 	const options = challenge?.challengeOptions ?? []
 
 	const router = useRouter()
+
+	useMount(() => {
+		if (initialPercentage === 100) openPracticeModal()
+	})
 
 	if (!challenge) {
 		return (
