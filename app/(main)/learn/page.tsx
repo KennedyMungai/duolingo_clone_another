@@ -5,7 +5,8 @@ import {
 	getCourseProgress,
 	getLessonPercentage,
 	getUnits,
-	getUserProgress
+	getUserProgress,
+	getUserSubscription
 } from '@/db/queries'
 import { redirect } from 'next/navigation'
 import Header from './header'
@@ -16,6 +17,7 @@ const LearnPage = async () => {
 	const courseProgress = await getCourseProgress()
 	const lessonPercentage = await getLessonPercentage()
 	const units = await getUnits()
+	const userSubscription = await getUserSubscription()
 
 	if (!userProgress || !userProgress.activeCourse || !courseProgress) {
 		redirect('/courses')
@@ -44,7 +46,7 @@ const LearnPage = async () => {
 					activeCourse={userProgress.activeCourse}
 					hearts={userProgress.hearts}
 					points={userProgress.points}
-					hasActiveSubscription={false}
+					hasActiveSubscription={!!userSubscription?.isActive}
 				/>
 			</StickyWrapper>
 		</div>
