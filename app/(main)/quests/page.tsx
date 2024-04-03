@@ -25,7 +25,7 @@ const QuestsPage = async () => {
 						Quests
 					</h1>
 					<p className='text-muted-foreground text-center text-lg mb-6'>
-						Complete quests by earning points
+						Complete quests by earning points.
 					</p>
 					{/* TODO: Add quests */}
 				</div>
