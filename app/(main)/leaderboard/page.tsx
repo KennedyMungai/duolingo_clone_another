@@ -1,14 +1,18 @@
 import FeedWrapper from '@/components/feed-wrapper'
 import StickyWrapper from '@/components/sticky-wrapper'
 import UserProgress from '@/components/user-progress'
-import { getUserProgress, getUserSubscription } from '@/db/queries'
+import {
+	getTopTenUsers,
+	getUserProgress,
+	getUserSubscription
+} from '@/db/queries'
 import Image from 'next/image'
 import { redirect } from 'next/navigation'
-import Items from '../shop/items'
 
 const LeaderBoardPage = async () => {
 	const userProgress = await getUserProgress()
 	const userSubscription = await getUserSubscription()
+	const leaderboard = await getTopTenUsers()
 
 	if (!userProgress || !userProgress.activeCourse) redirect('/courses')
 
@@ -29,6 +33,9 @@ const LeaderBoardPage = async () => {
 						See where you stand among other learners in the
 						community
 					</p>
+					{leaderboard.map((userProgress, index) => (
+						<div key={index}>{userProgress.userName}</div>
+					))}
 				</div>
 			</FeedWrapper>
 			<StickyWrapper>
