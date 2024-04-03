@@ -1,5 +1,7 @@
+import AdminApp from './app'
+
 const AdminPage = () => {
-	return <div>AdminPage</div>
+	return <AdminApp />
 }
 
 export default AdminPage

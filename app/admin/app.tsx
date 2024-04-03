@@ -1,9 +1,11 @@
 'use client'
 
+import { Admin } from 'react-admin'
+
 type Props = {}
 
 const AdminApp = (props: Props) => {
-	return <div>AdminApp</div>
+	return <Admin>Admin?</Admin>
 }
 
 export default AdminApp
