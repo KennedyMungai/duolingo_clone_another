@@ -1,4 +1,5 @@
 import FeedWrapper from '@/components/feed-wrapper'
+import Promo from '@/components/promo'
 import StickyWrapper from '@/components/sticky-wrapper'
 import UserProgress from '@/components/user-progress'
 import { getUserProgress, getUserSubscription } from '@/db/queries'
@@ -11,6 +12,8 @@ const ShopPage = async () => {
 	const userSubscription = await getUserSubscription()
 
 	if (!userProgress || !userProgress.activeCourse) redirect('/courses')
+
+	const isPro = !!userSubscription?.isActive
 
 	return (
 		<div className='flex gap-[48px] px-6'>
@@ -31,7 +34,7 @@ const ShopPage = async () => {
 					<Items
 						hearts={userProgress.hearts}
 						points={userProgress.points}
-						hasActiveSubscription={!!userSubscription?.isActive}
+						hasActiveSubscription={isPro}
 					/>
 				</div>
 			</FeedWrapper>
@@ -40,8 +43,9 @@ const ShopPage = async () => {
 					activeCourse={userProgress.activeCourse}
 					hearts={userProgress.hearts}
 					points={userProgress.points}
-					hasActiveSubscription={!!userSubscription?.isActive}
+					hasActiveSubscription={isPro}
 				/>
+				{!isPro && <Promo />}
 			</StickyWrapper>
 		</div>
 	)
