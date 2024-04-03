@@ -25,7 +25,11 @@ type Props = {
 	})[]
 	initialHearts: number
 	initialPercentage: number
-	userSubscription: typeof userSubscription.$inferInsert
+	userSubscription:
+		| (typeof userSubscription.$inferInsert & {
+				isActive: boolean
+		  })
+		| null
 }
 
 const Quiz = ({
