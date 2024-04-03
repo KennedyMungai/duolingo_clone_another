@@ -40,7 +40,7 @@ const Quests = ({ points, userProgress }: Props) => {
 								<p className='text-neutral-700 text-sm font-bold'>
 									{quest.title}
 								</p>
-								<Progress value={progress} className='h-3' />
+								<Progress value={progress} className='h-2' />
 							</div>
 						</div>
 					)
