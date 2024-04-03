@@ -2,7 +2,7 @@
 
 import { upsertChallengeProgress } from '@/actions/challenge-progress'
 import { reduceHearts } from '@/actions/user-progress'
-import { challengeOptions, challenges } from '@/db/schema'
+import { challengeOptions, challenges, userSubscription } from '@/db/schema'
 import { useHeartsModal } from '@/store/use-hearts-modal'
 import { usePracticeModal } from '@/store/use-practice-modal'
 import Image from 'next/image'
@@ -25,7 +25,7 @@ type Props = {
 	})[]
 	initialHearts: number
 	initialPercentage: number
-	userSubscription: any //TODO: Replace with subscription db type
+	userSubscription: typeof userSubscription.$inferInsert
 }
 
 const Quiz = ({
