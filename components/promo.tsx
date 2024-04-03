@@ -21,11 +21,9 @@ const Promo = () => {
 					Get unlimited hearts and more
 				</p>
 			</div>
-			<Link href='/shop   '>
-				<Button variant='super' className='w-full mt-2' size='lg'>
-					Upgrade Today
-				</Button>
-			</Link>
+			<Button variant='super' className='w-full mt-2' size='lg' asChild>
+				<Link href='/shop   '>Upgrade Today</Link>
+			</Button>
 		</div>
 	)
 }
