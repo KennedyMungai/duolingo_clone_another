@@ -1,7 +1,11 @@
 'use server'
 
 import db from '@/db/drizzle'
-import { getCourseById, getUserProgress } from '@/db/queries'
+import {
+	getCourseById,
+	getUserProgress,
+	getUserSubscription
+} from '@/db/queries'
 import { challengeProgress, challenges, userProgress } from '@/db/schema'
 import { auth, currentUser } from '@clerk/nextjs'
 import { and, eq } from 'drizzle-orm'
@@ -24,10 +28,9 @@ export const upsertUserProgress = async (courseId: string) => {
 		throw new Error('Course not found!')
 	}
 
-	// TODO: Uncomment once units and lessons have been added to the schema
-	// if (!course.units.length || !course.units[0].lessons.length) {
-	// 	throw new Error('Course is Empty')
-	// }
+	if (!course.units.length || !course.units[0].lessons.length) {
+		throw new Error('Course is Empty')
+	}
 
 	const existingUserProgress = await getUserProgress()
 
@@ -63,8 +66,7 @@ export const reduceHearts = async (challengeId: string) => {
 	if (!userId) throw new Error('Unauthorized')
 
 	const currentUserProgress = await getUserProgress()
-
-	// TODO: Get user subscription
+	const userSubscription = await getUserSubscription()
 
 	const challenge = await db.query.challenges.findFirst({
 		where: eq(challenges.id, challengeId)
@@ -88,7 +90,9 @@ export const reduceHearts = async (challengeId: string) => {
 
 	if (!currentUserProgress) throw new Error('User practice not found')
 
-	// TODO: Handle subscription
+	if (userSubscription?.isActive) {
+		return { error: 'subscription' }
+	}
 
 	if (currentUserProgress.hearts === 0) return { error: 'hearts' }
 

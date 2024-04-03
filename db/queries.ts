@@ -34,9 +34,17 @@ export const getUserProgress = cache(async () => {
 
 export const getCourseById = cache(async (courseId: string) => {
 	const data = await db.query.courses.findFirst({
-		where: eq(courses.id, courseId)
-
-		// TODO: Populate units and lessons
+		where: eq(courses.id, courseId),
+		with: {
+			units: {
+				orderBy: (units, { asc }) => [asc(units.order)],
+				with: {
+					lessons: {
+						orderBy: (lessons, { asc }) => [asc(lessons.order)]
+					}
+				}
+			}
+		}
 	})
 
 	return data
