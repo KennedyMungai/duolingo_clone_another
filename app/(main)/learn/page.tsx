@@ -11,6 +11,7 @@ import {
 import { redirect } from 'next/navigation'
 import Header from './header'
 import Unit from './unit'
+import Promo from '@/components/promo'
 
 const LearnPage = async () => {
 	const userProgress = await getUserProgress()
@@ -48,6 +49,7 @@ const LearnPage = async () => {
 					points={userProgress.points}
 					hasActiveSubscription={!!userSubscription?.isActive}
 				/>
+				<Promo />
 			</StickyWrapper>
 		</div>
 	)
