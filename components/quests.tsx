@@ -28,7 +28,7 @@ const Quests = ({ points, userProgress }: Props) => {
 					return (
 						<div
 							key={index}
-							className='flex items-center w-full p-4 gap-x-3'
+							className='flex items-center w-full pb-2 gap-x-3'
 						>
 							<Image
 								src='/points.svg'
