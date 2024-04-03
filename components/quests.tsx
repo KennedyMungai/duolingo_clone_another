@@ -33,11 +33,11 @@ const Quests = ({ points, userProgress }: Props) => {
 							<Image
 								src='/points.svg'
 								alt='Points'
-								width={60}
-								height={60}
+								width={40}
+								height={40}
 							/>
 							<div className='flex flex-col gap-y-2 w-full'>
-								<p className='text-neutral-700 text-xl font-bold'>
+								<p className='text-neutral-700 text-sm font-bold'>
 									{quest.title}
 								</p>
 								<Progress value={progress} className='h-3' />
