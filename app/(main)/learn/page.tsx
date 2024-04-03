@@ -1,4 +1,5 @@
 import FeedWrapper from '@/components/feed-wrapper'
+import Promo from '@/components/promo'
 import StickyWrapper from '@/components/sticky-wrapper'
 import UserProgress from '@/components/user-progress'
 import {
@@ -11,7 +12,6 @@ import {
 import { redirect } from 'next/navigation'
 import Header from './header'
 import Unit from './unit'
-import Promo from '@/components/promo'
 
 const LearnPage = async () => {
 	const userProgress = await getUserProgress()
